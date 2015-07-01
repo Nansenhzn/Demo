@@ -1,0 +1,43 @@
+<html>
+<body>
+    <div style="font-family: Times New Roman;display:none;background: #999;opacity: 0.6;filter: (opacity:40);position: absolute;top:0;left:0;z-index:-1;" id="mask" ></div>
+    <table style="display: none;overflow: auto; position: absolute; left:400px;top:70px; z-index:1;width:670px;height:600px;background-color: #ffffff" id="set1" border="1px" rules="none" cellpadding="0px">
+            <tr style="height:30px;width:670px;margin-left:10px;margin-bottom:5px;" id="th">
+                        <td style="width:670px; background: url(/static/images/login/headerbg.png);" >
+                            <span style="position: absolute;font-size: 15px;color:#ffffff;margin: 4px 0px 0px 5px">Add User</span>
+                            <img src="/static/images/login/logout.png" style="float:right" id="button_exit" onclick="add_user_close()">
+                        </td>
+                    </tr>
+                    <tr style="position: relative">
+                        <td >
+                    <form action="/add" method="get">
+                        <table border="0px" cellpadding="5px" style="margin-left:20px;margin-top: 25px;width:460px;height:500px;">
+                            <tr >
+                                <td style="width:250px;height:36px;background-color:#F5F5F5;"><label for="username">Username :</label></td>
+                                <td ><input type="text" name="username" id="username" size="30" class="text"/></td>
+                            </tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Create a new primary group for theuser:</lable></td><td><input type="checkbox" ></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Primary Group:</lable></td><td><select id="pgroup" name="pgroup"></select></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Home Directory:</lable></td><td><input id="homedirectory" type="text" name="homedirectory"></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Shell:</lable></td><td><select name="select"></select></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Full Name:</lable></td><td><input id="fullname" type="text" name="fullname" /></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Email:</lable></td><td><input id="email" type="text" name="email"/></td></tr>
+                            <tr>
+                                <td  style="width:150px;height:36px;background-color:#F5F5F5;"><label for="password">Password :</label></td>
+                                <td><input type="password" name="password" id="password" size="30" class="text"/></td>
+                            </tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Password confirmation:</lable></td><td><input type="text" name="textfield" /></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Disable password login:</lable></td><td><select name="dispasswd" /></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Lock user:</lable></td><td><input type="checkbox" ></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Permit Sudo:</lable></td><td><input type="checkbox"></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable></lable>SSH Public Key:</td><td><textarea id="ssh" name="ssh" cols="30" rows="5" wrap="physical"></textarea></td></tr>
+                            <tr>
+                                <td></td>
+                                <td align="left"><input type="submit" value="Submit"/></td>
+                            </tr>
+                        </table>
+                       </form>
+                    </td></tr>
+    </table>
+</body>
+</html>

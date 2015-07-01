@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+	<div>
+
+		<form action="/edit_Ok" method="get" name="form_01">
+			<table width="200" border="0">
+  				<tr>
+				    <td>
+                    	<table>
+                        	<tr>
+                            	<td width="100" nowrap>Group ID:</td>
+							  <td><input name="i_id" type="text" value="{{a}}" readonly=true></td>
+                            </tr>
+                        </table>
+                    </td>
+  				</tr>
+  				<tr>
+    				<td>
+                    	<table>
+                        	<tr>
+                            	<td width="100" nowrap>Group Name:</td>
+							  <td><input name="i_name" type="text" value="{{b}}" ></td>
+                            </tr>
+                        </table>
+                    </td>
+  				</tr>
+ 				<tr>
+    				<td>
+                    	<table>
+                        	<tr>
+                            	<td width="100" nowrap>Permit Sudo:</td>
+							  <td><input type="checkbox"></td>
+                            </tr>
+                        </table>
+                    </td>
+  				</tr>
+                <tr>
+                	<td>
+                    	<table>
+                        	<tr>
+                            	<td><input name="OK" type="Button" value="OK" onClick="form_01.action='/edit_Ok';form_01.submit(); "></td>
+
+                                <!-- <input name="OK" type="submit" value="OK" > -->
+
+                                <td><input name="Cancle" type="Button" value="Cancle" onClick="javascript:window.history.back();"></td>
+
+                                <td><input name="Delete" type="Button" value="Delete" onClick="form_01.action='/edit_Del';form_01.submit();"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+			</table>
+
+		</form>
+        <!-- <form action="" method="get" name="form_01">
+            <input name="Delete" type="Button" value="Delete" onClick="form_01.action='/edit_Del';form_01.submit();">
+
+        </form> -->
+        
+
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+    function OK()
+    {
+        
+    }
+
+    function Cancle()
+    {
+        window.open("home.html");
+        "javascript:window.history.back();"
+    }
+
+    function Delete()
+    {
+
+    }
+</script>

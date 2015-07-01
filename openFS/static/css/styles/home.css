@@ -1,0 +1,92 @@
+
+#content{
+    position:relative;
+    height:auto;
+    min-height:100%;
+}
+
+#header{
+    width:100%;
+    height:18%;
+    background: #333333;
+}
+
+#headerBarLeft{
+    width:80px;
+    float:left;
+}
+
+#headerBarRight{
+    width:80px;
+    float:right;
+}
+
+#content{
+    width:100%;
+    height:720px;
+}
+
+#contentTreeView{
+    width:16%;
+    height:650px;
+    float:left;
+    overflow-y:scroll;
+    margin-top: 20px;
+}
+
+#contenInfo{
+    height:650px;
+    float:left;
+    margin:0px 0px 0px 120px;
+    background: #333333;
+}
+
+#footer{
+    width:100%;
+    height:100px;
+    background: #333333;
+}
+
+#footerPane{
+    color:#ccc;
+    margin-left:20px;
+    margin-top:10px;
+    width:225px;
+    overflow:hidden;
+}
+
+#tab{position:relative;}
+#tab .tabList ul li{
+	float:left;
+	background:#fefefe;
+	background:-moz-linear-gradient(top, #fefefe, #ededed);
+	background:-webkit-gradient(linear,left top,left bottom, from(#fefefe), to(#ededed));
+	border:1px solid #ccc;
+	padding:5px 0;
+	width:150px;
+	text-align:center;
+	margin-left:-1px;
+	position:relative;
+	cursor:pointer;
+}
+#tab .tabCon{
+	position:absolute;
+	top:32px;
+	border-top:none;
+	width:403px;
+	height:100px;
+}
+#tab .tabCon div{
+	padding:10px;
+	position:absolute;
+	opacity:0;
+	filter:alpha(opacity=0);
+}
+#tab .tabList li.cur{
+	border-bottom:none;
+	background:#fff;
+}
+#tab .tabCon div.cur{
+	opacity:1;
+	filter:alpha(opacity=100);
+}

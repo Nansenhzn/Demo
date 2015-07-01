@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="/static/css/content/shared/styles/examples-offline.css" rel="stylesheet">
+    <link href="/static/css/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="/static/css/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="/static/css/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="/static/css/styles/home.css" rel="stylesheet">
+    <link href="/static/css/styles/addgroup.css" rel="stylesheet">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/kendo.all.min.js"></script>
+    <script src="/static/js/headerBar.js"></script>
+    <script src="/static/js/treeView.js"></script>
+    <script src="/static/js/add_user.js"></script>
+    <script src="/static/js/new_ajax.js"></script>
+    <script type="text/javascript">
+
+
+    function showEdGroup()
+    {
+        ed_div.style.display="block";
+    }
+    function unshowEdGroup()
+    {
+        ed_div.style.display="none";
+    }
+    function showtypeG(){
+        forbid.style.width ="100%";
+        forbid.style.height ="675px";
+        forbid.style.visibility = "visible";
+    }
+    function unshowtypeG(){
+        forbid.style.width ="0px";
+        forbid.style.height ="0px";
+        forbid.style.visibility = "visible";
+    }
+
+    $(document).ready(function(){
+        $("input[name='groupid']").each(function(){
+            $(this).click(function(){
+                var b = $(this).val();
+                $.getJSON(
+                    "/form_g",{'b':b}, function(ret){
+                        var a=document.getElementById('a');
+                        var b=document.getElementById('b');
+                        var c=document.getElementById('c');
+                        var d=document.getElementById('d');
+
+                        a.value=ret.groupid;
+                        b.value=ret.groupname;
+                        c.value=ret.allowRepeatedGids;
+                        d.value=ret.permitSudo;
+
+                        //$('#result').append(usersnb//append\CA\C7׷\BCӣ\ACht\CA\C7ֱ\BD\D3\CC\ED\BC\D3
+                    }
+                )
+            });
+        });
+    });
+
+    $(document).ready(function(){//\BC\D3\C9\CF\D5\E2\B8\F6
+    $("[id='info']").click(function() {
+
+                setInterval(dd,5000);
+
+        });
+        });
+    //ȫ\BE\D6bianliang
+    var Idle=[0,0];
+    var count=0;
+    var Total=[0,0];
+</script>
+<style  type="text/css">
+           #system{
+           	position: absolute;
+           	display: none;
+           	top:100px;
+           	left: 10px;
+           	width: 500px;
+           	height: 300px;
+
+
+           }
+           #ed_div{
+            position:absolute;
+            display:none;
+            top: 70px;
+            left: 350px;
+            width: 400px;
+
+            background-color: #ffffff;
+            text-align: center;
+            border: solid 1px;
+            padding-top: 10px;
+
+            z-index: 100;
+        }
+        #ed_div td{
+            background-color: #F5F5F5;
+        }
+
+        .two td{
+            background: #DFE7EF;
+        }
+
+           #forms{
+               position: absolute;
+               display: none;
+			top: 20px;
+			left: 40px;
+			width: 500px;
+			background-color: #ffffff;
+			border: solid 1px;
+            margin-left:330px;
+			z-index: 1;
+
+		}
+        #edit_g{
+            position: absolute;
+            display: none;
+            width: 280px;
+            height: 150px;
+            background-color: #ffffff;
+            text-align: center;
+            border: solid 1px;
+            z-index: 1;
+            top:200px;
+            left:300px;
+        }
+
+        #form td{
+            background-color: #F5F5F5;
+
+        }
+        #close{
+             position:absolute;
+             right:0px;
+             top:0px;
+
+        }
+
+        .two td{
+            background: #DFE7EF;
+        }
+
+    </style>
+{#    <script type="text/javascript" src="/static/js/jquery-1.8.3.min.js"></script>#}
+    <script type="text/javascript" src="/static/js/highcharts.js"></script>
+    <script>
+
+
+//function show()
+//{
+ //   window.alert("ddd")
+//var x=document.getElementById("info")
+//x.click();
+
+
+//}
+
+//function dd(){
+   // show();
+ // }
+
+          function showform()
+          {
+                forms.style.display='block';
+
+          }
+          function unshowform()
+          {
+            form.style.display="none";
+
+          }
+
+          function showtype()
+          {
+
+			forbid.style.width ="1264px";
+            forbid.style.height ="675px";
+            forbid.style.visibility = "visible";
+           }
+            function unshowtype()
+          {
+            forbid.style.width ="0px";
+            forbid.style.height ="0px";
+            forbid.style.visibility = "visible";
+           }
+
+
+
+            $(document).ready(function(){
+            $("input[name='usersid']").each(function(){
+                $(this).click(function(){
+                var a = $(this).val();
+            $.getJSON("/form/",{'a':a}, function(ret){
+                var a=document.getElementById('uid');
+                var b=document.getElementById('usern');
+                var h=document.getElementById('h');
+                var c=document.getElementById('c');
+                var d=document.getElementById('hd');
+                var e=document.getElementById('e');
+                var f=document.getElementById('f');
+                var i=document.getElementById('i');
+                b.value=ret.usersname;
+                a.value=ret.usersid;
+                c.value=ret.primarygroupid;
+                d.value=ret.homedirectory;
+                e.value=ret.password;
+                f.value=ret.fullname;
+                i.value=ret.ssh;
+                h.value=ret.email;
+                //$('#result').append(ret.usersname + '<br>');   //append是追加，html()是直接添加
+
+            })
+          });
+        });
+       });
+
+    //全局bianliang</script>
+</head>
+
+<body style="position: relative;" id="body">
+    <div style="font-family: Times New Roman;display:none;background: #999;opacity: 0.6;filter: (opacity:40);position: absolute;top:0;left:0;z-index:-1;" id="mask" ></div>
+    <div style="display: none;"  id="set1">
+        <div >
+            <table style="position:absolute;left:300px;top:80px; z-index:1;">
+                <tr style="height:30px;width:670px;margin-left:10px;margin-bottom:5px;" id="th">
+                    <td style="width:668px; background: url(/static/images/login/headerbg.png);" >
+                            <span style="position: absolute;font-size: 15px;color:#ffffff;margin: 4px 0px 0px 5px">Add User</span>
+                            <img src="/static/images/login/logout.png" style="float:right;margin-right: 7px" id="button_exit" onclick="add_user_close()">
+                    </td>
+                </tr>
+            </table>
+        </div>
+             <div >
+                <table style="overflow: auto;position: absolute; margin-left:302px;top:110px; z-index:1;width:670px;height:400px;background-color: #ffffff" border="1px" rules="none" cellpadding="0px">
+                    <tr style="position: relative">
+                        <td >
+                    <form action="/add" method="get">
+                        <table border="0px" cellpadding="5px" style="margin-left:20px;margin-top: 15px;width:630px;height:400px;">
+                            <tr >
+                                <td style="width:250px;height:36px;background-color:#F5F5F5;"><label for="username">Username :</label></td>
+                                <td ><input type="text" name="username" id="username" size="30" class="text"/></td>
+                            </tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Primary Group:</lable></td><td><select id="pgroup" name="pgroup"></select></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Home Directory:</lable></td><td><input id="homedirectory" type="text" name="homedirectory"></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Full Name:</lable></td><td><input id="fullname" type="text" name="fullname" /></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Email:</lable></td><td><input id="email" type="text" name="email"/></td></tr>
+                            <tr>
+                                <td  style="width:150px;height:36px;background-color:#F5F5F5;"><label for="password">Password :</label></td>
+                                <td><input type="password" name="password" id="password" size="30" class="text"/></td>
+                            </tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Password confirmation:</lable></td><td><input type="text" name="textfield" /></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable></lable>SSH Public Key:</td><td><textarea id="ssh" name="ssh" cols="30" rows="5" wrap="physical"></textarea></td></tr>
+                            <tr>
+                                <td></td>
+                                <td align="left"><input type="submit" value="Submit"/></td>
+                            </tr>
+                        </table>
+                       </form>
+                    </td></tr>
+                </table>
+            </div>
+    </div>
+    <div style="display: none;"  id="set2">
+        <div >
+                <table style="position:absolute;left:300px;top:80px; z-index:1;">
+                    <tr style="height:30px;width:670px;margin-left:10px;margin-bottom:5px;" id="th">
+                        <td style="width:668px; background: url(/static/images/login/headerbg.png);" >
+                                <span style="position: absolute;font-size: 15px;color:#ffffff;margin: 4px 0px 0px 5px">User Information</span>
+                                <img src="/static/images/login/logout.png" style="float:right;margin-right: 7px" id="button_exit" onclick="user_info_close()">
+                        </td>
+                    </tr>
+                </table>
+        </div>
+        <table style="overflow: auto; position: absolute; left:302px;top:110px; z-index:1;width:670px;height:400px;background-color: #ffffff"  border="1px" rules="none" cellpadding="0px">
+                    <tr style="position: relative">
+                        <td >
+                    <form action="/alter" method="get">
+                        <table border="0px" cellpadding="5px" style="margin-left:20px;margin-top: 25px;width:630px;height:400px;">
+                            <tr >
+                                <td style="width:250px;height:36px;background-color:#F5F5F5;"><label for="username">Username :</label></td>
+                                <td ><input type="text" name="username1" id="username1" size="30" class="text" value="{{ user }}" readonly/></td>
+                            </tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Primary Group:</lable></td><td><select id="pgroup1" name="pgroup1"></select></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Home Directory:</lable></td><td><input id="homedirectory1" type="text" name="homedirectory1" value="{{ homedirectory }}"></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Full Name:</lable></td><td><input id="fullname1" type="text" name="fullname1" value="{{ fullname }}" /></td></tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable>Email:</lable></td><td><input id="email1" type="text" name="email1" value="{{ email }}"/></td></tr>
+                            <tr>
+                                <td  style="width:150px;height:36px;background-color:#F5F5F5;"><label for="password">Password :</label></td>
+                                <td><input type="password" name="password1" id="password1" size="30" class="text" value="{{ password }}"/></td>
+                            </tr>
+                            <tr><td style="width:150px;height:36px;background-color:#F5F5F5;"><lable></lable>SSH Public Key:</td><td><textarea id="ssh1" name="ssh1" cols="30" rows="5" wrap="physical" value="{{ ssh }}"></textarea></td></tr>
+                            <tr>
+                                <td></td>
+                                <td align="left"><input type="submit" value="Save"/></td>
+                            </tr>
+                        </table>
+                       </form>
+                    </td></tr>
+        </table>
+    </div>
+
+
+    <div id="mask1"></div>
+    <div id="mask2"></div>
+    <div id="groupTable" style="border:1px;display:none;width: 550px;height: 180px;top:200px;left:300px;border: 1px; position: absolute;z-index: 1;background-color: #ffffff;">
+		<div id="title" style="height:25px">
+            <span style="position: absolute;font-size: 15px;color:#ffffff;margin: 4px 0px 0px 5px">Add Group</span>
+             <img src="/static/images/login/logout.png" style="height:20px;width: 20px;position: absolute;top:2px;left:523px; margin-right: 7px" id="close">
+        </div>
+		<br />
+        <form action="/addG" method="get">
+		<div id="panel" >
+			<div id="panelleft">
+				<label>Group Name:</label><br /><br />
+				<label>Permit Sudo:</label><br /><br />
+				<label>Allow repeated GIDs:</label><br /><br />
+			</div>
+
+			<div id="panelright" style="float: right;width: 200px;">
+
+				<input type="text" name="groupName" size="20" /><br /><br />
+				<input type="checkbox" name="Permit" value="1"><br /><br />
+				<input type="checkbox" name="repeated" value="1"><br />
+                &nbsp&nbsp<input type="submit" value="OK">&nbsp
+			    <input type="reset" value="reset">
+
+			</div>
+		</div>
+
+        </form>
+	</div>
+
+
+    <div id="edit1" style="border:1px;display:none;width: 550px;height: 180px;top:200px;left:300px;border: 1px; position: absolute;z-index: 1;background-color: #ffffff;">
+        <div id="title" style="height:25px">
+            <span style="position: absolute;font-size: 15px;color:#ffffff;margin: 4px 0px 0px 5px">Edit</span>
+             <img src="/static/images/login/logout.png" style="height:20px;width: 20px;position: absolute;top:2px;left:523px; margin-right: 7px" id="close1">
+        </div>
+
+		<br />
+
+		<div id="panel" >
+			<div id="panelleft">
+				<label>Group ID:</label><br /><br />
+				<label>Group Name:</label><br /><br />
+				<label>Permit Sudo:</label><br /><br />
+                <form action="/delG" method="get">
+                 <input type="hidden" name="groupID" id="g_id1">
+                 <input type="submit" value="delete">
+                </form>
+			</div>
+
+			<div id="panelright">
+                <form action="/editG" method="get">
+				<input type="text" id="g_id" name="groupID" size="20" readonly="true" /><br />
+				<input type="text" id="g_name" name="groupName" size="20" /><br /><br />
+				<input type="checkbox" name="Permit" value="1"><br /><br />
+                &nbsp&nbsp<input type="submit" value="OK">
+                &nbsp<input type="reset" value="Cancel">&nbsp
+                </form>
+			</div>
+
+		</div>
+    </div>
+
+
+
+
+
+    <div id="content" style="position:relative;height:auto;min-height:100%">
+        <div id="header">
+                 &nbsp;&nbsp;<a href="/" title="FreeNAS"><img src="/static/images/freenas-logo.png"></a></div><br/>
+
+                 <div style="width:80px;float:left;margin:0px 0px 0px 20px" onclick="openSystem()">
+                     &nbsp;&nbsp;&nbsp;<img src="/static/css/content/web/treeview/menu/system.png" /><br/>
+                     <span>System</span>
+                 </div>
+                 <div id="headerBarLeft">
+                    &nbsp;&nbsp;&nbsp;<img src="/static/css/content/web/treeview/menu/network.png" /><br/>
+                     <span>Network</span>
+                 </div>
+                 <div id="headerBarLeft">
+                    &nbsp;&nbsp;&nbsp;<img src="/static/css/content/web/treeview/menu/storage.png" /><br/>
+                     <span>Storage</span>
+                 </div>
+                 <div id="headerBarLeft">
+                    &nbsp;&nbsp;&nbsp;<img src="/static/css/content/web/treeview/menu/sharing.png" /><br/>
+                     <span>Sharing</span>
+                 </div>
+                 <div id="headerBarLeft">
+                    &nbsp;&nbsp;&nbsp;<img src="/static/css/content/web/treeview/menu/services.png" /><br/>
+                     <span>Services</span>
+                 </div>
+                 <div id="headerBarLeft">
+                    &nbsp;&nbsp;&nbsp;<img src="/static/css/content/web/treeview/menu/plugins.png" /><br/>
+                     <span>Plugins</span>
+                 </div>
+                 <div id="headerBarLeft">
+                    <img src="/static/css/content/web/treeview/menu/jails.png" /><br/>
+                     <span>Jails</span>
+                 </div>
+                 <div id="headerBarLeft">
+                    &nbsp;&nbsp;&nbsp;<img src="/static/css/content/web/treeview/menu/reporting.png" /><br/>
+                     <span>Reporting</span>
+                 </div>
+
+
+                <div id="headerBarRight">
+                    &nbsp;&nbsp;&nbsp;<img src="/static/images/ui/menu/alerts/ok.png" /><br/>&nbsp;&nbsp;
+                    <span>Alert</span>
+                </div>
+                <div id="headerBarRight">
+                    &nbsp;&nbsp;&nbsp;<img src="/static/images/ui/menu/logout.png" /><br/>
+                    <span>Log Out</span>
+                </div>
+                <div id="headerBarRight">
+                    &nbsp;&nbsp;&nbsp;<img src="/static/images/ui/menu/help.png" /><br/>&nbsp;&nbsp;
+                    <span>Help</span>
+                </div>
+                <div id="headerBarRight">
+                    &nbsp;&nbsp;&nbsp;<img src="/static/images/ui/menu/account.png" /><br/>
+                     <span>Account</span>
+                </div><br/><br/><br/>
+
+        <div id="content" style="width:100%;height:720px;">
+        <div id="example" style="width:16%;height:650px;float:left;overflow-y:scroll;">
+                    <div id="narTree" ></div>
+                <script>
+                    $("#narTree").kendoTreeView(
+                            {
+                                dataSource: [
+                                {
+                                    text: "Account", imageUrl: "/static/css/content/web/treeview/account.png",
+                                    items: [
+                                                { text: "Groups", imageUrl: "/static/css/content/web/treeview/groups.png",
+                                                    items:[
+                                                        {% for group in groupList %}
+                                                        {text:"{{ group.groupname }}",imageUrl:"/static/images/ui/tree/groups.png"},
+                                                        {% endfor %}
+                                                        {text:"Add Group",imageUrl:"/static/css/content/web/treeview/add_groups.png"},
+                                                        {text:"View Groups",imageUrl:"/static/css/content/web/treeview/view_all_groups.png"},
+                                                    ]
+                                                },
+                                                { text: "Users", imageUrl: "/static/css/content/web/treeview/users.png" ,
+                                                    items:[
+{#                                                            {text:"111",imageUrl:"/static/images/ui/tree/user.png"},#}
+                                                        {% for user in userList %}
+                                                            {text:"{{ user.username }}",imageUrl:"/static/images/ui/tree/user.png"},
+                                                        {% endfor %}
+                                                            {text:"Add User",imageUrl:"/static/css/content/web/treeview/add_users.png"},
+                                                            {text:"View Users",imageUrl:"/static/css/content/web/treeview/view_all_users.png"},
+                                                        ]
+
+                                                },
+                                            ]
+                                },
+                                {
+                                    text: "Testing", imageUrl: "/static/css/content/web/treeview/system.png"
+                                },
+                                {
+                                    text: "Network", expanded: true, imageUrl: "/static/css/content/web/treeview/network.png",
+                                    items: [
+                                        { text: "Categorized Mail", imageUrl: "/static/css/content/web/treeview/search.png" },
+                                        { text: "Large Mail", imageUrl: "/static/css/content/web/treeview/search.png" },
+                                        { text: "Unread Mail", imageUrl: "/static/css/content/web/treeview/search.png" }
+                                    ]
+                                },
+                                 {
+                                    text: "Storage", imageUrl: "/static/css/content/web/treeview/storage.png"
+                                 },
+                                {
+                                    text: "Sharing", imageUrl: "/static/css/content/web/treeview/sharing.png"
+                                },
+                                {
+                                    text: "Services", imageUrl: "/static/css/content/web/treeview/services.png"
+                                },
+                                {
+                                    text: "Jails", imageUrl: "/static/css/content/web/treeview/jail.png"
+                                },
+                                {
+                                    text: "Reporting", imageUrl: "/static/css/content/web/treeview/reporting.png"
+                                },
+                                {
+                                    text: "Display System Processes", imageUrl: "/static/css/content/web/treeview/display_system_processes.png"
+                                },
+                                {
+                                    text: "Shell", imageUrl: "/static/css/content/web/treeview/16x16_shell.png"
+                                },
+                                {
+                                    text: "Reboot", imageUrl: "/static/css/content/web/treeview/reboot.png"
+                                },
+                                {
+                                    text: "Shutdown", imageUrl: "/static/css/content/web/treeview/shutdown.png"
+                                }
+                            ],
+                         select: handleSelectedEvent
+                    });
+                </script>
+            </div>
+        <div class="tabCon" id="sethsw" style="position:absolute;left: 220px;top:40px;display:none;">
+                    <div class="cur"></div>
+                    <div  style="display:block;height:600px">
+                        <table width="950px" border="1" cellspacing="0"   style="table-layout:fixed;word-break:break-all; word-wrap:break-all;">
+                            <tr class="two" height="40px">
+                                <td>User ID</td>
+                                <td>Username</td>
+                                <td>Password</td>
+                                <td>Fullname</td>
+                                <td>Email</td>
+                                <td>Home Directory</td>
+                                <td>Group</td>
+                                <td>Ssh</td>
+                            </tr>
+
+                            {% for foo in userList %}
+                                     <tr>
+                                         <td>
+                                         <input type="button" name="usersid" onclick="showform();" value="{{ foo.id }}" >
+                                         </td>
+
+{#                                         <td>{{ foo.UsersName }}</td>#}
+{#                                         <td>{{ foo.PrimaryGroupID}}</td>#}
+{#                                         <td>{{ foo.HomeDirectory }}</td>#}
+{#                                         <td>{{ foo.Shell }}</td>#}
+{#                                         <td>{{ foo.FullName }}</td>#}
+{#                                         <td>{{ foo.BuiltInUser }}</td>#}
+{#                                         <td>{{ foo.Email }}</td>#}
+{#                                         <td>{{ foo.Disablepasswordlogin }}</td>#}
+{#                                         <td>{{ foo.Lockuser }}</td>#}
+{#                                         <td>{{ foo.PermitSudo }}</td>#}
+
+                                     <td>{{ foo.username }}</td>
+                                     <td>{{ foo.password }}</td>
+                                     <td>{{ foo.fullname }}</td>
+                                     <td>{{ foo.email }}</td>
+                                     <td>{{ foo.homeDirectory }}</td>
+                                     <td>{{ foo.group }}</td>
+                                     <td>{{ foo.ssh }}</td>
+                                     </tr>
+
+                           {% endfor %}
+
+
+
+
+
+                        </table>
+
+
+
+                    </div>
+
+
+
+                 </div>
+         <div style="margin-left: 20px;margin-top: 100px;float:left;display: none;font-family:Microsoft YaHei" id="Testing">
+                      <fieldset>
+                        <legend>命令测试</legend>
+                        <div class="form-group">
+                            <label>目标主机</label>
+                            <input type="text" class="form-control" placeholder="127.0.0.1" id="destinationIP" style="margin-left:20px">
+                        </div>
+                        <div class="form-group">
+                            <label>选择测试命令</label>
+                            <select style="margin-left:20px" id="testCommand">
+                                {% for result in results %}
+                                    <option value="{{ result.commandId }}">{{ result.commandName }}</option>
+                                {% endfor %}
+
+                            </select>
+                            <input type="button" class="btn btn-primary" value="运行" onclick="return checkTesting();" >
+                        <input type="button" class="btn btn-primary" value="停止" onclick="return stop();" >
+                        </div>
+                        <div></div>
+                      </fieldset>
+
+                      <fieldset>
+                        <legend>测试结果</legend>
+
+                        <div class="form-group" id="form" style="display:none">
+                            <label>返回内容</label>
+                            <textarea class="form-control" rows="10" style="margin-left:20px;width: 600px" id="result"></textarea>
+                        </div>
+                        <div id="container" style="min-width:700px;height:400px"></div>
+                      </fieldset>
+
+            </div>
+            <div id='viewG' style="display: none;">#System information#<br>
+
+                        &nbsp;
+
+                        <table width="600px" border=1 cellspacing="0" style="table-layout:fixed;word-break:break-all; word-wrap:break-all;">
+                            <tr class="two" height="40px">
+                                <th>Group ID</th>
+                                <th>Group Name</th>
+                                <th>Built-in Group</th>
+                                <th>Permit Sudo</th>
+                            </tr>
+                            {% for gInfo in groupList %}
+
+                                <tr>
+                                    <td>
+                                        <input type="button" name="groupid" onclick="showEdGroup();showtypeG()" value="{{ gInfo.id }}">
+                                    </td>
+                                    <td>{{ gInfo.groupname }}</td>
+                                    <td>{{ gInfo.allowRepeatedGids }}</td>
+                                    <td>{{ gInfo.permitSudo }}</td>
+                                </tr>
+
+                            {% endfor %}
+                        </table>
+
+                    </div>
+        <div id="ed_div">
+                <div id="title" style="height:25px;width: 400px;top:0px;margin-top:0px;">
+                    <span style="position: absolute;font-size: 15px;color:#ffffff;margin: 4px 0px 0px 5px">Edit Group</span>
+                    <img src="/static/images/login/logout.png" style="height:20px;width: 20px;position: absolute;left:378px; margin-right: 7px" id="close" onclick="unshowEdGroup();unshowtypeG()">
+                </div>
+
+                <div>
+                <form action="/edit_group/" method="get">
+                    <table id="editor" border="0" cellpadding="10" cellspacing="2" width="350px" align="center">
+                        <tr><td style="height:10px;background-color: white"></td></tr>
+                        <tr>
+                            <td>Group ID</td>
+                            <td>
+                                <input name="groupid" type="text" id="a" value=""/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Group Name</td>
+                            <td>
+                                <input name="groupname" type="text" id="b" value=""/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Built-in Group</td>
+                            <td>
+                                <input name="groupallo" type="text" id="c" value=""/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Permit Sudo</td>
+                            <td>
+                                <input name="grouppermit" type="text" id="d" value=""/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2"  >
+                                <input id="queding" type="submit" value="Save"/>
+                            </td>
+                        </tr>
+                    </table>
+                    </form>
+                    </div>
+            </div>
+            <div id="forms">
+                            <form action="/edit" method="get">
+                            <table id="editor" border="0" cellpadding="10" cellspacing="1" width="500px"  align="center">
+                                <tr><td colspan="2" style="width:500px;height:15px; background: url(/static/images/login/headerbg.png);"><span style="position: absolute;font-size: 15px;color:#ffffff;margin: 4px 0px 0px 5px">Add User</span>
+                                <img src="/static/images/login/logout.png" style="float:right;margin-right: 7px" id="button_exit" onclick="user_view_close()">
+                                </td></tr>
+                                <tr><td align="left" style="width:200px;background-color:#F5F5F5;">User ID</td><td><input name="usersid" type="text" id="uid" value=""/></td></tr>
+                                <tr><td style="width:200px;background-color:#F5F5F5;">Username</td><td><input name="usersnamee" type="text" id="usern" value=""/></td></tr>
+                                <tr><td style="width:200px;background-color:#F5F5F5;">Password</td><td><input name="passworde" type="text" id="e" value=""/></td></tr>
+                                <tr><td style="width:200px;background-color:#F5F5F5;">Group</td><td><input name="groupe" type="text" id="c" value=""/></td></tr>
+                                <tr><td style="width:200px;background-color:#F5F5F5;">Home Directory</td><td><input name="homedirectorye" type="text" id="hd" value=""/></td></tr>
+
+                                <tr><td style="width:200px;background-color:#F5F5F5;">Full Name</td><td><input name="fullnamee" type="text" id="f" value=""/></td></tr>
+                                <tr><td style="width:200px;background-color:#F5F5F5;">E-mail</td><td><input name="emaile" type="text" id="h" value=""/></td></tr>
+                                <tr><td style="width:200px;background-color:#F5F5F5;">Ssh</td><td><input name="sshe" type="text" id="i" value=""/></td></tr>
+                                <tr>
+    		 <td colspan="2"  >
+                                <input id="queding" type="submit" value="Save"/>
+                                </td>
+    		</tr>
+
+
+
+                            </table>
+                            </form>
+
+
+                 </div>
+
+            </div>
+        </div>
+
+         <div id="footer">
+            <br/>
+            <br/>
+            <div style="float:right;">
+                <img src="/static/images/ui/bottom/ix_logo.png" border="0" alt="iXsystems, Inc."/>
+            </div>
+            <div id="footerPane" style="float:left;">
+                FreeNAS&reg; &copy; 2015 <a href="http://www.ixsystems.com" target="_blank" title="iXsystems, Inc.">iXsystems, Inc.</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
